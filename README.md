@@ -1,26 +1,12 @@
-# Customer Review Sentiment Analysis
+# Customer Sentiment Intelligence Dashboard
 
-A lightweight sentiment analysis demo that classifies customer reviews as **positive**, **negative**, or **neutral**.
+An original, local-first customer sentiment intelligence app built with Streamlit.
 
-> ⚠️ This repository is a demo project. The included dataset is curated for local experimentation, not production-grade coverage.
+- Preserves individual review sentiment prediction.
+- Adds CSV upload analytics with KPIs, trends, filters, and a priority queue.
+- Adds transparent heuristic/demo layers for aspect sentiment and emotion estimates.
 
-## What's improved
-
-- Larger, more balanced demo dataset in `data/reviews.csv` (positive/negative/neutral, short phrases, punctuation-heavy text)
-- Stronger model pipeline in `src/train.py`:
-  - custom text normalization with negation handling
-  - word n-grams + character n-grams TF-IDF features
-  - class-balanced Logistic Regression
-- Better training output:
-  - dataset size + class distribution
-  - test accuracy
-  - classification report
-- Polished Streamlit UI with:
-  - modern layout and sentiment result cards
-  - confidence estimate display and per-class probabilities
-  - cue-word explanation when available
-  - example review buttons and empty/loading/error states
-- Added tests for representative examples in `tests/test_predictions.py`
+> ⚠️ Demo quality notice: model confidence is an estimate from a local TF-IDF + Logistic Regression model. Aspect/emotion outputs are lexicon/rule heuristics and should not be treated as production-grade NLP.
 
 ## Project structure
 
@@ -32,35 +18,30 @@ customer-review-sentiment-analysis/
 ├── models/
 ├── requirements.txt
 ├── src/
+│   ├── analytics.py
+│   ├── aspect_sentiment.py
+│   ├── emotions.py
 │   ├── predict.py
 │   ├── sentiment_model.py
 │   └── train.py
 └── tests/
+    ├── conftest.py
+    ├── test_dashboard_analytics.py
     └── test_predictions.py
 ```
 
-## Setup
+## Setup (from repository root)
 
 ```bash
 git clone https://github.com/Shrikant8705/customer-review-sentiment-analysis.git
 cd customer-review-sentiment-analysis
-
 python -m venv .venv
 ```
 
-Activate the environment:
+Activate environment:
 
-### macOS/Linux
-
-```bash
-source .venv/bin/activate
-```
-
-### Windows PowerShell
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
+- macOS/Linux: `source .venv/bin/activate`
+- Windows PowerShell: `.venv\Scripts\Activate.ps1`
 
 Install dependencies:
 
@@ -69,23 +50,19 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Train the model
-
-Run from repository root:
+## Train model
 
 ```bash
 python src/train.py
 ```
 
-This command creates `models/sentiment_model.joblib`.
+Creates `models/sentiment_model.joblib` locally.
 
-## Run the Streamlit app
+## Run app
 
 ```bash
 streamlit run app.py
 ```
-
-Open the local URL printed by Streamlit (usually `http://localhost:8501`).
 
 ## Run tests
 
@@ -93,10 +70,97 @@ Open the local URL printed by Streamlit (usually `http://localhost:8501`).
 pytest -q
 ```
 
-## Why the old prediction was unreliable
+## CSV schema
 
-The earlier dataset was very small and sparse, so the model had weak coverage of obvious sentiment cues (for example, short negative phrases like "The product is bad!").
+### Required
 
-## Confidence note
+- `review` (case-insensitive match)
 
-The app shows a **model confidence estimate** (class probability from this trained classifier). It is helpful for ranking certainty, but it is **not a guarantee** that a prediction is correct.
+### Optional (auto-detected when present)
+
+- date/time: `date`, `datetime`, `timestamp`, `created_at`, `time`
+- product: `product`, `product_name`, `item`, `sku`
+- category: `category`, `segment`, `department`
+- rating: `rating`, `stars`, `score`
+- customer: `customer`, `customer_id`, `user`, `client`
+
+### Example CSV
+
+```csv
+review,date,product,category,rating,customer
+"Delivery was fast, but product quality was terrible.",2026-10-01,Widget A,Gadgets,2,C001
+"Excellent support and good value for money.",2026-10-02,Widget B,Gadgets,5,C002
+"Packaging was fine, setup took time.",2026-10-03,Widget C,Accessories,3,C003
+```
+
+If `review` is missing, the app shows a clear validation error.
+
+## Dashboard capabilities
+
+- KPI cards:
+  - total reviews
+  - average sentiment score (0-10)
+  - positive %
+  - negative %
+  - average confidence estimate
+- Sentiment distribution chart (positive/neutral/negative)
+- Time trend chart (when a usable date column is detected)
+- Review explorer with filters:
+  - sentiment
+  - aspect tags
+  - emotion tags
+  - free-text search
+  - optional product/category filters
+- Highest-priority negative reviews list (transparent heuristic)
+
+## Transparent heuristics
+
+### Aspect sentiment (demo)
+
+Configurable aspects:
+
+- product quality
+- price/value
+- delivery/shipping
+- packaging
+- customer support/service
+- usability
+- reliability
+
+Each review is tagged per aspect as `positive`, `negative`, `neutral`, or `not_mentioned`.
+
+### Emotion estimates (demo)
+
+Lexicon-based estimates for:
+
+- anger
+- disappointment
+- frustration
+- happiness
+- satisfaction
+- gratitude
+- admiration
+- concern
+
+These are separate from model sentiment output.
+
+### Priority queue heuristic (demo)
+
+Priority increases with:
+
+1. negative sentiment
+2. higher model confidence
+3. severity cue hits (e.g., refund, broken, damaged)
+
+## Limitations
+
+- Small local dataset and classic ML baseline can miss nuance (sarcasm, domain drift, mixed sentiment).
+- Aspect and emotion outputs are intentionally transparent but simplistic heuristics.
+- Use this dashboard for exploration/prototyping, not automated high-stakes decisions.
+
+## Roadmap
+
+- Replace heuristic aspect/emotion layers with stronger pretrained transformer models.
+- Add calibration and monitoring for confidence quality.
+- Add explainability views (token-level contributions) and richer trend diagnostics.
+- Add ingestion/validation profiles per business domain.

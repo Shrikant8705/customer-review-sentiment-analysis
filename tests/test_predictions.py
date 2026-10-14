@@ -1,9 +1,4 @@
 from src.predict import predict_sentiment, predict_with_details
-from src.train import train_model
-
-
-def setup_module():
-    train_model()
 
 
 def test_bad_product_is_negative():
