@@ -1,0 +1,25 @@
+review,sentiment
+"The product arrived quickly and works perfectly.",positive
+"Excellent quality and great value for money.",positive
+"Customer support solved my problem immediately.",positive
+"I am very happy with this purchase.",positive
+"The packaging was secure and delivery was fast.",positive
+"This is one of the best products I have bought.",positive
+"The item looks exactly like the pictures.",positive
+"Easy to use and surprisingly reliable.",positive
+"The product stopped working after one day.",negative
+"Very poor quality and a complete waste of money.",negative
+"My order arrived damaged and unusable.",negative
+"Customer support never responded to my messages.",negative
+"I am disappointed with this purchase.",negative
+"The delivery was extremely late.",negative
+"The product feels cheap and poorly made.",negative
+"I would not recommend this product to anyone.",negative
+"The product is okay but nothing special.",neutral
+"It works as expected for the price.",neutral
+"Delivery was neither fast nor slow.",neutral
+"The quality is average.",neutral
+"I have mixed feelings about this purchase.",neutral
+"The item is usable, but it has some limitations.",neutral
+"It is a standard product with standard features.",neutral
+"The product arrived and appears to be fine.",neutral
