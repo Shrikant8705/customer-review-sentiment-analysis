@@ -1,0 +1,41 @@
+review,date,product,category,rating,customer
+"The delivery was fast and the product quality is excellent.",2026-01-05,"Wireless Headphones",Electronics,5,customer_001
+"The sound quality is amazing and setup was very easy.",2026-01-06,"Wireless Headphones",Electronics,5,customer_002
+"Battery life is great and the headphones are comfortable.",2026-01-08,"Wireless Headphones",Electronics,4,customer_003
+"The product arrived damaged and does not work.",2026-01-09,"Wireless Headphones",Electronics,1,customer_004
+"Customer support quickly replaced my defective item.",2026-01-10,"Wireless Headphones",Electronics,4,customer_005
+"The headphones are okay, but the microphone quality is average.",2026-01-12,"Wireless Headphones",Electronics,3,customer_006
+"Excellent value for money and very reliable.",2026-01-14,"Smart Watch",Wearables,5,customer_007
+"The watch looks great and the fitness tracking is accurate.",2026-01-15,"Smart Watch",Wearables,5,customer_008
+"The battery drains too quickly and the app keeps crashing.",2026-01-16,"Smart Watch",Wearables,2,customer_009
+"I am disappointed because the screen stopped working after a week.",2026-01-18,"Smart Watch",Wearables,1,customer_010
+"It works as expected, but there is nothing special about it.",2026-01-20,"Smart Watch",Wearables,3,customer_011
+"The price is fair for the features included.",2026-01-22,"Smart Watch",Wearables,3,customer_012
+"The laptop stand is sturdy, attractive, and easy to assemble.",2026-01-24,"Laptop Stand",Accessories,5,customer_013
+"Great build quality and excellent value for the price.",2026-01-25,"Laptop Stand",Accessories,5,customer_014
+"The stand arrived late but the packaging was secure.",2026-01-27,"Laptop Stand",Accessories,3,customer_015
+"The stand is flimsy and broke during normal use.",2026-01-29,"Laptop Stand",Accessories,1,customer_016
+"It is a standard stand that does the basic job.",2026-02-01,"Laptop Stand",Accessories,3,customer_017
+"The packaging was terrible and the item was scratched.",2026-02-03,"USB-C Hub",Electronics,2,customer_018
+"The hub works perfectly with all of my devices.",2026-02-04,"USB-C Hub",Electronics,5,customer_019
+"Very good performance and fast delivery.",2026-02-06,"USB-C Hub",Electronics,4,customer_020
+"The connection drops constantly and support was unhelpful.",2026-02-08,"USB-C Hub",Electronics,1,customer_021
+"The product is acceptable for occasional use.",2026-02-10,"USB-C Hub",Electronics,3,customer_022
+"The phone case fits perfectly and has a clean design.",2026-02-12,"Phone Case",Accessories,5,customer_023
+"I love this case; it feels durable and looks premium.",2026-02-13,"Phone Case",Accessories,5,customer_024
+"The case is too expensive for the quality provided.",2026-02-15,"Phone Case",Accessories,2,customer_025
+"The color is different from the pictures and I want a refund.",2026-02-17,"Phone Case",Accessories,1,customer_026
+"The case is fine, but the buttons are slightly difficult to press.",2026-02-19,"Phone Case",Accessories,3,customer_027
+"Delivery was fast, but product quality was terrible.",2026-02-21,"Bluetooth Speaker",Audio,2,customer_028
+"The speaker has excellent sound and impressive battery life.",2026-02-22,"Bluetooth Speaker",Audio,5,customer_029
+"The speaker is average and the volume is acceptable.",2026-02-24,"Bluetooth Speaker",Audio,3,customer_030
+"This is the worst purchase I have made; the speaker arrived broken.",2026-02-26,"Bluetooth Speaker",Audio,1,customer_031
+"Customer service was friendly and solved my delivery problem.",2026-02-28,"Bluetooth Speaker",Audio,4,customer_032
+"Not great, not terrible, just an ordinary speaker.",2026-03-02,"Bluetooth Speaker",Audio,3,customer_033
+"The order was cancelled without explanation and I am extremely frustrated.",2026-03-04,"USB-C Hub",Electronics,1,customer_034
+"Fantastic product and outstanding customer support.",2026-03-06,"Laptop Stand",Accessories,5,customer_035
+"The product is neither good nor bad; it is usable.",2026-03-08,"Smart Watch",Wearables,3,customer_036
+"I am very happy with this purchase and highly recommend it.",2026-03-10,"Wireless Headphones",Electronics,5,customer_037
+"The item is cheap and disappointing, and I regret buying it.",2026-03-12,"Phone Case",Accessories,1,customer_038
+"The packaging was secure and the item arrived on time.",2026-03-14,"Bluetooth Speaker",Audio,4,customer_039
+"The setup takes some time, but the product performs normally.",2026-03-16,"USB-C Hub",Electronics,3,customer_040
