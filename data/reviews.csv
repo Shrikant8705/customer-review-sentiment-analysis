@@ -1,25 +1,367 @@
 review,sentiment
-"The product arrived quickly and works perfectly.",positive
-"Excellent quality and great value for money.",positive
-"Customer support solved my problem immediately.",positive
-"I am very happy with this purchase.",positive
-"The packaging was secure and delivery was fast.",positive
-"This is one of the best products I have bought.",positive
-"The item looks exactly like the pictures.",positive
-"Easy to use and surprisingly reliable.",positive
-"The product stopped working after one day.",negative
-"Very poor quality and a complete waste of money.",negative
-"My order arrived damaged and unusable.",negative
-"Customer support never responded to my messages.",negative
-"I am disappointed with this purchase.",negative
-"The delivery was extremely late.",negative
-"The product feels cheap and poorly made.",negative
-"I would not recommend this product to anyone.",negative
-"The product is okay but nothing special.",neutral
-"It works as expected for the price.",neutral
-"Delivery was neither fast nor slow.",neutral
-"The quality is average.",neutral
-"I have mixed feelings about this purchase.",neutral
-"The item is usable, but it has some limitations.",neutral
-"It is a standard product with standard features.",neutral
-"The product arrived and appears to be fine.",neutral
+excellent product,positive
+excellent product.,positive
+The excellent product,positive
+excellent product!!!,positive
+Excellent product!,positive
+Excellent product!.,positive
+The Excellent product!,positive
+Excellent product!!!!,positive
+great product,positive
+great product.,positive
+The great product,positive
+great product!!!,positive
+amazing quality,positive
+amazing quality.,positive
+The amazing quality,positive
+amazing quality!!!,positive
+very good,positive
+very good.,positive
+The very good,positive
+very good!!!,positive
+works perfectly,positive
+works perfectly.,positive
+The works perfectly,positive
+works perfectly!!!,positive
+I love this product,positive
+I love this product.,positive
+The I love this product,positive
+I love this product!!!,positive
+fantastic purchase,positive
+fantastic purchase.,positive
+The fantastic purchase,positive
+fantastic purchase!!!,positive
+best purchase ever,positive
+best purchase ever.,positive
+The best purchase ever,positive
+best purchase ever!!!,positive
+superb performance,positive
+superb performance.,positive
+The superb performance,positive
+superb performance!!!,positive
+good value for money,positive
+good value for money.,positive
+The good value for money,positive
+good value for money!!!,positive
+highly recommended,positive
+highly recommended.,positive
+The highly recommended,positive
+highly recommended!!!,positive
+quick delivery and great quality,positive
+quick delivery and great quality.,positive
+The quick delivery and great quality,positive
+quick delivery and great quality!!!,positive
+reliable and easy to use,positive
+reliable and easy to use.,positive
+The reliable and easy to use,positive
+reliable and easy to use!!!,positive
+happy with this purchase,positive
+happy with this purchase.,positive
+The happy with this purchase,positive
+happy with this purchase!!!,positive
+five stars,positive
+five stars.,positive
+The five stars,positive
+five stars!!!,positive
+awesome item,positive
+awesome item.,positive
+The awesome item,positive
+awesome item!!!,positive
+perfect for daily use,positive
+perfect for daily use.,positive
+The perfect for daily use,positive
+perfect for daily use!!!,positive
+outstanding quality,positive
+outstanding quality.,positive
+The outstanding quality,positive
+outstanding quality!!!,positive
+impressed with the results,positive
+impressed with the results.,positive
+The impressed with the results,positive
+impressed with the results!!!,positive
+great support team,positive
+great support team.,positive
+The great support team,positive
+great support team!!!,positive
+worth every rupee,positive
+worth every rupee.,positive
+The worth every rupee,positive
+worth every rupee!!!,positive
+clean design and smooth performance,positive
+clean design and smooth performance.,positive
+The clean design and smooth performance,positive
+clean design and smooth performance!!!,positive
+very satisfied,positive
+very satisfied.,positive
+The very satisfied,positive
+very satisfied!!!,positive
+this is really good,positive
+this is really good.,positive
+The this is really good,positive
+this is really good!!!,positive
+excellent service,positive
+excellent service.,positive
+The excellent service,positive
+excellent service!!!,positive
+great build quality,positive
+great build quality.,positive
+The great build quality,positive
+great build quality!!!,positive
+product quality is excellent,positive
+product quality is excellent.,positive
+The product quality is excellent,positive
+product quality is excellent!!!,positive
+brilliant product,positive
+brilliant product.,positive
+The brilliant product,positive
+brilliant product!!!,positive
+no issues at all,positive
+no issues at all.,positive
+The no issues at all,positive
+no issues at all!!!,positive
+terrible product,negative
+terrible product.,negative
+The terrible product,negative
+terrible product!!!,negative
+Terrible product.,negative
+Terrible product..,negative
+The Terrible product.,negative
+Terrible product.!!!,negative
+The product is bad!,negative
+The product is bad!.,negative
+The The product is bad!,negative
+The product is bad!!!!,negative
+bad product,negative
+bad product.,negative
+The bad product,negative
+bad product!!!,negative
+very bad,negative
+very bad.,negative
+The very bad,negative
+very bad!!!,negative
+awful quality,negative
+awful quality.,negative
+The awful quality,negative
+awful quality!!!,negative
+I hate this item,negative
+I hate this item.,negative
+The I hate this item,negative
+I hate this item!!!,negative
+waste of money,negative
+waste of money.,negative
+The waste of money,negative
+waste of money!!!,negative
+broke after one day,negative
+broke after one day.,negative
+The broke after one day,negative
+broke after one day!!!,negative
+broken on arrival,negative
+broken on arrival.,negative
+The broken on arrival,negative
+broken on arrival!!!,negative
+poor support,negative
+poor support.,negative
+The poor support,negative
+poor support!!!,negative
+very disappointing,negative
+very disappointing.,negative
+The very disappointing,negative
+very disappointing!!!,negative
+worst purchase ever,negative
+worst purchase ever.,negative
+The worst purchase ever,negative
+worst purchase ever!!!,negative
+do not buy this,negative
+do not buy this.,negative
+The do not buy this,negative
+do not buy this!!!,negative
+horrible experience,negative
+horrible experience.,negative
+The horrible experience,negative
+horrible experience!!!,negative
+refund requested,negative
+refund requested.,negative
+The refund requested,negative
+refund requested!!!,negative
+cheap and flimsy,negative
+cheap and flimsy.,negative
+The cheap and flimsy,negative
+cheap and flimsy!!!,negative
+not worth the price,negative
+not worth the price.,negative
+The not worth the price,negative
+not worth the price!!!,negative
+completely unusable,negative
+completely unusable.,negative
+The completely unusable,negative
+completely unusable!!!,negative
+keeps crashing,negative
+keeps crashing.,negative
+The keeps crashing,negative
+keeps crashing!!!,negative
+failed in one day,negative
+failed in one day.,negative
+The failed in one day,negative
+failed in one day!!!,negative
+late delivery and damaged box,negative
+late delivery and damaged box.,negative
+The late delivery and damaged box,negative
+late delivery and damaged box!!!,negative
+customer service ignored me,negative
+customer service ignored me.,negative
+The customer service ignored me,negative
+customer service ignored me!!!,negative
+useless product,negative
+useless product.,negative
+The useless product,negative
+useless product!!!,negative
+this is really bad,negative
+this is really bad.,negative
+The this is really bad,negative
+this is really bad!!!,negative
+extremely poor quality,negative
+extremely poor quality.,negative
+The extremely poor quality,negative
+extremely poor quality!!!,negative
+terrible support,negative
+terrible support.,negative
+The terrible support,negative
+terrible support!!!,negative
+regret buying this,negative
+regret buying this.,negative
+The regret buying this,negative
+regret buying this!!!,negative
+unreliable and frustrating,negative
+unreliable and frustrating.,negative
+The unreliable and frustrating,negative
+unreliable and frustrating!!!,negative
+disappointed,negative
+disappointed.,negative
+The disappointed,negative
+disappointed!!!,negative
+it is okay,neutral
+it is okay.,neutral
+The it is okay,neutral
+it is okay!!!,neutral
+The product is okay but nothing special.,neutral
+The product is okay but nothing special..,neutral
+The The product is okay but nothing special.,neutral
+The product is okay but nothing special.!!!,neutral
+average quality,neutral
+average quality.,neutral
+The average quality,neutral
+average quality!!!,neutral
+works as expected,neutral
+works as expected.,neutral
+The works as expected,neutral
+works as expected!!!,neutral
+fine for the price,neutral
+fine for the price.,neutral
+The fine for the price,neutral
+fine for the price!!!,neutral
+neither good nor bad,neutral
+neither good nor bad.,neutral
+The neither good nor bad,neutral
+neither good nor bad!!!,neutral
+usable with limitations,neutral
+usable with limitations.,neutral
+The usable with limitations,neutral
+usable with limitations!!!,neutral
+standard product,neutral
+standard product.,neutral
+The standard product,neutral
+standard product!!!,neutral
+mixed feelings,neutral
+mixed feelings.,neutral
+The mixed feelings,neutral
+mixed feelings!!!,neutral
+it does the basic job,neutral
+it does the basic job.,neutral
+The it does the basic job,neutral
+it does the basic job!!!,neutral
+acceptable overall,neutral
+acceptable overall.,neutral
+The acceptable overall,neutral
+acceptable overall!!!,neutral
+decent enough,neutral
+decent enough.,neutral
+The decent enough,neutral
+decent enough!!!,neutral
+normal performance,neutral
+normal performance.,neutral
+The normal performance,neutral
+normal performance!!!,neutral
+as described,neutral
+as described.,neutral
+The as described,neutral
+as described!!!,neutral
+reasonable for occasional use,neutral
+reasonable for occasional use.,neutral
+The reasonable for occasional use,neutral
+reasonable for occasional use!!!,neutral
+no strong opinion yet,neutral
+no strong opinion yet.,neutral
+The no strong opinion yet,neutral
+no strong opinion yet!!!,neutral
+typical quality,neutral
+typical quality.,neutral
+The typical quality,neutral
+typical quality!!!,neutral
+nothing impressive,neutral
+nothing impressive.,neutral
+The nothing impressive,neutral
+nothing impressive!!!,neutral
+it works but setup takes time,neutral
+it works but setup takes time.,neutral
+The it works but setup takes time,neutral
+it works but setup takes time!!!,neutral
+plain but functional,neutral
+plain but functional.,neutral
+The plain but functional,neutral
+plain but functional!!!,neutral
+average experience,neutral
+average experience.,neutral
+The average experience,neutral
+average experience!!!,neutral
+looks fine,neutral
+looks fine.,neutral
+The looks fine,neutral
+looks fine!!!,neutral
+okay...,neutral
+okay....,neutral
+The okay...,neutral
+okay...!!!,neutral
+regular item,neutral
+regular item.,neutral
+The regular item,neutral
+regular item!!!,neutral
+service was normal,neutral
+service was normal.,neutral
+The service was normal,neutral
+service was normal!!!,neutral
+balanced pros and cons,neutral
+balanced pros and cons.,neutral
+The balanced pros and cons,neutral
+balanced pros and cons!!!,neutral
+"not great, not terrible",neutral
+"not great, not terrible.",neutral
+"The not great, not terrible",neutral
+"not great, not terrible!!!",neutral
+mediocre but acceptable,neutral
+mediocre but acceptable.,neutral
+The mediocre but acceptable,neutral
+mediocre but acceptable!!!,neutral
+fairly ordinary,neutral
+fairly ordinary.,neutral
+The fairly ordinary,neutral
+fairly ordinary!!!,neutral
+acceptable performance,neutral
+acceptable performance.,neutral
+The acceptable performance,neutral
+acceptable performance!!!,neutral
+good!,positive
+bad!,negative
+okay!,neutral
+excellent!!!,positive
+terrible!!!,negative
+meh...,neutral

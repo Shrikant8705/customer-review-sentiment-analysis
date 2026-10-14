@@ -1,6 +1,26 @@
 # Customer Review Sentiment Analysis
 
-A small NLP project that classifies customer reviews as **positive**, **negative**, or **neutral** using TF-IDF features and logistic regression.
+A lightweight sentiment analysis demo that classifies customer reviews as **positive**, **negative**, or **neutral**.
+
+> ⚠️ This repository is a demo project. The included dataset is curated for local experimentation, not production-grade coverage.
+
+## What's improved
+
+- Larger, more balanced demo dataset in `data/reviews.csv` (positive/negative/neutral, short phrases, punctuation-heavy text)
+- Stronger model pipeline in `src/train.py`:
+  - custom text normalization with negation handling
+  - word n-grams + character n-grams TF-IDF features
+  - class-balanced Logistic Regression
+- Better training output:
+  - dataset size + class distribution
+  - test accuracy
+  - classification report
+- Polished Streamlit UI with:
+  - modern layout and sentiment result cards
+  - confidence estimate display and per-class probabilities
+  - cue-word explanation when available
+  - example review buttons and empty/loading/error states
+- Added tests for representative examples in `tests/test_predictions.py`
 
 ## Project structure
 
@@ -11,15 +31,13 @@ customer-review-sentiment-analysis/
 │   └── reviews.csv
 ├── models/
 ├── requirements.txt
-└── src/
-    ├── predict.py
-    └── train.py
+├── src/
+│   ├── predict.py
+│   ├── sentiment_model.py
+│   └── train.py
+└── tests/
+    └── test_predictions.py
 ```
-
-## Requirements
-
-- Python 3.10 or newer
-- `pip`
 
 ## Setup
 
@@ -30,7 +48,7 @@ cd customer-review-sentiment-analysis
 python -m venv .venv
 ```
 
-Activate the virtual environment:
+Activate the environment:
 
 ### macOS/Linux
 
@@ -53,11 +71,13 @@ pip install -r requirements.txt
 
 ## Train the model
 
+Run from repository root:
+
 ```bash
 python src/train.py
 ```
 
-This creates `models/sentiment_model.joblib`.
+This command creates `models/sentiment_model.joblib`.
 
 ## Run the Streamlit app
 
@@ -65,31 +85,18 @@ This creates `models/sentiment_model.joblib`.
 streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit, usually `http://localhost:8501`.
+Open the local URL printed by Streamlit (usually `http://localhost:8501`).
 
-## Run command-line predictions
-
-```bash
-python src/predict.py
-```
-
-## Add your own data
-
-Replace `data/reviews.csv` with a CSV containing these columns:
-
-```csv
-review,sentiment
-"The product is excellent",positive
-"The item arrived damaged",negative
-"It is acceptable for the price",neutral
-```
-
-Then retrain the model:
+## Run tests
 
 ```bash
-python src/train.py
+pytest -q
 ```
 
-## Important note
+## Why the old prediction was unreliable
 
-The included dataset is intentionally small and is provided for demonstration. For a useful production model, train on a much larger, representative, and carefully labeled dataset.
+The earlier dataset was very small and sparse, so the model had weak coverage of obvious sentiment cues (for example, short negative phrases like "The product is bad!").
+
+## Confidence note
+
+The app shows a **model confidence estimate** (class probability from this trained classifier). It is helpful for ranking certainty, but it is **not a guarantee** that a prediction is correct.
