@@ -26,60 +26,144 @@ EXAMPLE_REVIEWS = [
     "Delivery was fast, but product quality was terrible.",
 ]
 
-CARD_STYLE = {
-    "positive": "#0f766e",
-    "negative": "#b91c1c",
-    "neutral": "#475569",
+SENTIMENT_THEME = {
+    "positive": {"primary": "#0f766e", "accent": "#14b8a6"},
+    "negative": {"primary": "#be123c", "accent": "#fb7185"},
+    "neutral": {"primary": "#1d4ed8", "accent": "#f59e0b"},
 }
 
 st.set_page_config(
     page_title="Customer Sentiment Intelligence Dashboard",
     page_icon="📊",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
 st.markdown(
     """
     <style>
-      .subtitle {color:#475569; margin-top:-8px;}
+      .subtitle {
+        color: #94a3b8;
+        margin-top: -8px;
+      }
+      .hero-card {
+        border-radius: 16px;
+        padding: 18px 20px;
+        border: 1px solid #334155;
+        background: linear-gradient(135deg, #0f172a 0%, #172554 100%);
+        color: #f8fafc;
+        margin-bottom: 14px;
+      }
       .card {
-        border-radius: 14px;
-        padding: 14px;
-        border: 1px solid #e2e8f0;
-        background: #ffffff;
+        border-radius: 16px;
+        padding: 16px;
+        border: 1px solid #334155;
+        background: #0f172a;
       }
       .sentiment-card {
-        border-radius: 14px;
-        padding: 18px;
-        color: #ffffff;
+        border-radius: 16px;
+        padding: 18px 20px;
+        color: #f8fafc;
         margin-top: 10px;
-        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.18);
+        border: 1px solid #334155;
+        box-shadow: 0 12px 28px rgba(2, 8, 23, 0.35);
       }
-      .note-box {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
+      .result-empty {
+        background: linear-gradient(160deg, #111827 0%, #1e293b 100%);
+        border: 1px dashed #475569;
         border-radius: 12px;
-        padding: 12px;
+        padding: 16px;
+        color: #e2e8f0;
+      }
+      .result-empty h4 {
+        margin: 0 0 4px 0;
+      }
+      .result-empty p {
+        margin: 0;
+        color: #cbd5e1;
+      }
+      .cue-chip {
+        display: inline-block;
+        margin: 4px 6px 0 0;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid #64748b;
+        background: rgba(30, 41, 59, 0.9);
+        color: #f8fafc;
+        font-size: 12px;
+      }
+      .probability-row {
+        margin-top: 10px;
+      }
+      .probability-label {
+        display: flex;
+        justify-content: space-between;
+        color: #cbd5e1;
+        font-size: 13px;
+        margin-bottom: 4px;
+      }
+      .probability-track {
+        width: 100%;
+        height: 10px;
+        border-radius: 999px;
+        background: #1e293b;
+        overflow: hidden;
+      }
+      .probability-fill {
+        height: 100%;
+        border-radius: 999px;
+      }
+      .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+      }
+      .stTabs [data-baseweb="tab"] {
+        background: #111827;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        color: #cbd5e1;
+        padding: 8px 14px;
+      }
+      .stTabs [aria-selected="true"] {
+        background: #1d4ed8 !important;
+        border-color: #60a5fa !important;
+        color: #eff6ff !important;
+      }
+      .stButton > button {
+        border-radius: 10px !important;
+      }
+      .stButton > button:not([kind="primary"]) {
+        background: #1e293b !important;
+        border: 1px solid #475569 !important;
+        color: #e2e8f0 !important;
+      }
+      .stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, #2563eb, #0ea5e9) !important;
+        border: 1px solid #93c5fd !important;
+        color: #eff6ff !important;
+      }
+      div[data-testid="stMetric"] {
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 10px;
+        background: #0f172a;
+      }
+      div[data-testid="stProgressBar"] > div > div > div {
+        background: linear-gradient(90deg, #06b6d4, #3b82f6) !important;
       }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.title("📊 Customer Sentiment Intelligence Dashboard")
 st.markdown(
-    "<p class='subtitle'>Original, local-first sentiment analytics with transparent heuristic demo layers for aspects and emotions.</p>",
+    """
+    <div class='hero-card'>
+      <h2 style='margin:0;'>📊 Customer Sentiment Intelligence Dashboard</h2>
+      <p class='subtitle'>Local-first sentiment analytics with transparent heuristic/demo layers for aspects and emotions.</p>
+    </div>
+    """,
     unsafe_allow_html=True,
 )
-
-with st.sidebar:
-    st.subheader("Quick commands")
-    st.code("python src/train.py", language="bash")
-    st.code("pytest -q", language="bash")
-    st.caption("Run from repository root.")
-    st.info(
-        "Sentiment confidence is a model estimate from a local demo classifier. Aspect and emotion analysis is heuristic/demo only."
-    )
 
 if not MODEL_PATH.exists():
     st.warning("No trained model found yet.")
@@ -121,12 +205,6 @@ with tab_single:
 
     with output_col:
         st.subheader("Result")
-        if not st.session_state.review_input.strip() and not analyze_clicked:
-            st.markdown(
-                "<div class='note-box'>✍️ Enter text or choose an example to see sentiment, aspect cues, and emotion estimates.</div>",
-                unsafe_allow_html=True,
-            )
-
         if analyze_clicked:
             review = st.session_state.review_input.strip()
             if not review:
@@ -143,37 +221,72 @@ with tab_single:
                     probabilities = result["probabilities"]
                     signals = result["signals"]
 
-                    color = CARD_STYLE.get(sentiment, "#1d4ed8")
+                    sentiment_style = SENTIMENT_THEME.get(sentiment, {"primary": "#1d4ed8", "accent": "#60a5fa"})
                     st.markdown(
                         f"""
-                        <div class='sentiment-card' style='background:{color};'>
+                        <div class='sentiment-card' style='background:linear-gradient(140deg, {sentiment_style["primary"]}, {sentiment_style["accent"]});'>
                           <h3 style='margin:0;'>Sentiment: {sentiment.title()}</h3>
-                          <p style='margin:8px 0 0 0;'>Model confidence estimate: {confidence:.1%}</p>
+                          <p style='margin:8px 0 0 0; color:#f8fafc;'>Model confidence estimate: {confidence:.1%}</p>
                         </div>
                         """,
                         unsafe_allow_html=True,
                     )
 
-                    st.progress(min(max(confidence, 0.0), 1.0))
+                    st.progress(min(max(confidence, 0.0), 1.0), text="Confidence")
                     prob_cols = st.columns(3)
                     for i, label in enumerate(["positive", "neutral", "negative"]):
                         value = float(probabilities.get(label, 0.0))
                         prob_cols[i].metric(label.title(), f"{value:.1%}")
 
+                    prob_colors = {
+                        "positive": "#14b8a6",
+                        "neutral": "#60a5fa",
+                        "negative": "#fb7185",
+                    }
+                    for label in ["positive", "neutral", "negative"]:
+                        value = max(0.0, min(float(probabilities.get(label, 0.0)), 1.0))
+                        st.markdown(
+                            f"""
+                            <div class='probability-row'>
+                              <div class='probability-label'>
+                                <span>{label.title()}</span>
+                                <span>{value:.1%}</span>
+                              </div>
+                              <div class='probability-track'>
+                                <div class='probability-fill' style='width:{value * 100:.1f}%; background:{prob_colors[label]};'></div>
+                              </div>
+                            </div>
+                            """,
+                            unsafe_allow_html=True,
+                        )
+
                     if signals:
-                        flat_signals = []
+                        st.markdown("**Signal/Cue words**")
                         for label in ["positive", "neutral", "negative"]:
                             words = signals.get(label)
                             if words:
-                                flat_signals.append(f"{label}: {', '.join(words)}")
-                        st.caption("Detected sentiment cues → " + " | ".join(flat_signals))
+                                st.markdown(
+                                    f"{label.title()}: "
+                                    + " ".join(f"<span class='cue-chip'>{word}</span>" for word in words),
+                                    unsafe_allow_html=True,
+                                )
                     else:
                         st.caption("No clear cue words matched; prediction relies on broader text patterns.")
 
                     st.markdown(
-                        "<div class='note-box'>Aspect and emotion layers are available in the CSV dashboard tab as transparent heuristic/demo analytics.</div>",
+                        "<div class='result-empty' style='margin-top:12px; border-style:solid;'>Aspect and emotion layers are available in the CSV dashboard tab as transparent heuristic/demo analytics.</div>",
                         unsafe_allow_html=True,
                     )
+        if not analyze_clicked and st.session_state.review_input.strip():
+            st.markdown(
+                "<div class='result-empty'><h4>Ready to analyze</h4><p>Click <b>Analyze sentiment</b> to generate a sentiment card, confidence, probabilities, and cue words.</p></div>",
+                unsafe_allow_html=True,
+            )
+        elif not st.session_state.review_input.strip() and not analyze_clicked:
+            st.markdown(
+                "<div class='result-empty'><h4>Awaiting review text</h4><p>Type a customer review or choose an example to see sentiment, confidence, probability breakdown, and cue words.</p></div>",
+                unsafe_allow_html=True,
+            )
 
 with tab_dashboard:
     st.subheader("Upload reviews CSV")
